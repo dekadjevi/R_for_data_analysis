@@ -1,2 +1,5 @@
-# LAB-OF-DATA-SCIENCE
-# R_for_data_analysis
+# R_for_data_analysis (LAB-OF-DATA-SCIENCE)
+
+## tidyvers 
+## diplyr
+## ggplot
