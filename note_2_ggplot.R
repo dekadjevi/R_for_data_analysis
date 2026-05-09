@@ -1,3 +1,5 @@
+install.packages("tidyverse")
+install.packages("ggplot2")
 
 gapminder_2007 <- gapminder %>%
   filter(year == 2007)
@@ -5,6 +7,7 @@ gapminder_2007 <- gapminder %>%
 gapminder_2007
 
 # creating a scatter plot with ggplot2
+install.packages("ggplot2")
 
 library(ggplot2)
 
@@ -34,4 +37,27 @@ ggplot(gapminder_2007 ,aes(x=gdpPercap ,y= lifeExp)) +
   geom_point() +
   scale_x_log10() + 
   facet_wrap( ~ continent)
-  
+
+# create a scatter plot showing the change in medianlifeExp over time
+gapminder_1 <- gapminder %>%
+  group_by(year) %>%
+  summarize(medianlifeExp = median(lifeExp))
+
+ggplot(gapminder_1 , aes(x= year, y = medianlifeExp)) +
+  geom_point()+
+  expand_limits(y=0)
+
+# summarize medianGdpPercap within each continent within each year 
+
+by_year_continent <- gapminder %>%
+  group_by(continent , year) %>%
+  summarize(medianGdpPercap = median(gdpPercap))
+
+ggplot(by_year_continent, aes(x= year , y= medianGdpPercap , color = continent )) +
+  geom_point()+
+  expand_limits(y= 0)
+
+#line plots 
+
+
+

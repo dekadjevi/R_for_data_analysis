@@ -64,3 +64,4 @@ df %>%
 df %>%
   group_by(year, continent) %>%
   summarize(avgLifeExp = mean(lifeExp), totpop = sum(pop))
+
